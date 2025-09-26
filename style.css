@@ -1,0 +1,243 @@
+body {
+    font-family: 'Mali', cursive; /* ใช้ฟอนต์น่ารักๆ */
+    background-color: #fce4ec; /* สีชมพูอ่อนน่ารัก */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+    overflow: hidden; /* ป้องกัน scrollbar */
+}
+
+#game-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#game-title {
+    color: #e91e63; /* สีชมพูเข้ม */
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 0px rgba(255,255,255,0.7);
+}
+
+.game-screen {
+    display: none; /* ซ่อนทุกหน้าจอเริ่มต้น */
+    animation: fadeIn 0.5s ease-out;
+}
+
+.game-screen.active {
+    display: block; /* แสดงเฉพาะหน้าที่ active */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+button {
+    background-color: #ff9800; /* ส้มสดใส */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #f57c00; /* ส้มเข้มขึ้น */
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#game-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #4CAF50; /* เขียว */
+}
+
+#battle-area {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+    min-height: 300px;
+    position: relative;
+}
+
+#catty-character img, #enemy-character img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #8bc34a; /* เขียวอ่อน */
+    background-color: #fff;
+    object-fit: contain;
+    padding: 5px;
+}
+
+#enemy-character img {
+    border-color: #ff5722; /* ส้มแดง */
+}
+
+#word-puzzle {
+    background-color: #fff8e1; /* ครีมอ่อน */
+    border: 3px dashed #ffc107; /* เหลืองเข้ม */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+}
+
+#word-display {
+    font-size: 3em;
+    font-weight: bold;
+    color: #673ab7; /* ม่วงเข้ม */
+    margin-bottom: 10px;
+}
+
+#word-image-container {
+    margin-bottom: 15px;
+}
+
+#word-image {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 2px solid #9c27b0; /* ม่วงอ่อน */
+    background-color: #fff;
+    padding: 5px;
+}
+
+#options-container {
+    margin-top: 15px;
+}
+
+.option-btn {
+    background-color: #673ab7; /* ม่วงเข้ม */
+    font-size: 1.5em;
+    padding: 8px 18px;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+.option-btn:hover {
+    background-color: #512da8;
+}
+
+#feedback-message {
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #e91e63;
+    min-height: 30px; /* กันหน้าจอกระโดด */
+}
+
+/* Quiz Screen */
+#quiz-questions {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.quiz-item {
+    background-color: #f3e5f5; /* ม่วงอ่อน */
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.quiz-item p {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #4A148C; /* ม่วงเข้ม */
+}
+
+.quiz-item .quiz-options label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.quiz-item .quiz-options input[type="radio"] {
+    margin-right: 8px;
+}
+
+/* Result Screen */
+#result-screen h2 {
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+#result-screen p {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+#final-score {
+    color: #ff9800;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+#mastery-message, #cat-rank {
+    color: #673ab7;
+    font-weight: bold;
+}
+
+/* Animations for Catty attack/feedback */
+.correct-answer {
+    animation: correctFlash 0.3s ease-in-out;
+}
+@keyframes correctFlash {
+    0% { background-color: transparent; }
+    50% { background-color: #d4edda; } /* เขียวอ่อน */
+    100% { background-color: transparent; }
+}
+.wrong-answer {
+    animation: wrongFlash 0.3s ease-in-out;
+}
+@keyframes wrongFlash {
+    0% { background-color: transparent; }
+    50% { background-color: #f8d7da; } /* แดงอ่อน */
+    100% { background-color: transparent; }
+}
+
+.catty-attack {
+    animation: cattyAttack 0.5s ease-in-out;
+}
+@keyframes cattyAttack {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(50px); }
+    100% { transform: translateX(0); }
+}
+
+.enemy-hit {
+    animation: enemyShake 0.3s ease-in-out;
+}
+@keyframes enemyShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}

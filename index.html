@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Phonics Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <h1 id="game-title">Cat Phonics Adventure: ศึกปกป้องหมู่บ้านสระเสียงสั้น</h1>
+
+        <div id="start-screen" class="game-screen active">
+            <p>สวมบทบาทเป็นแคทตี้ แมวนักรบผู้กล้าหาญ ปกป้องหมู่บ้านสระเสียงสั้นจากอสูรร้าย!</p>
+            <button id="start-game-btn">เริ่มการผจญภัย</button>
+        </div>
+
+        <div id="game-screen" class="game-screen">
+            <div id="game-header">
+                <div id="score-display">คะแนน: <span id="current-score">0</span></div>
+                <div id="level-display">ด่าน: <span id="current-level">A</span></div>
+            </div>
+            <div id="battle-area">
+                <div id="catty-character">
+                    <img src="https://via.placeholder.com/150/0000FF/FFFFFF?text=Catty" alt="Catty Warrior">
+                </div>
+                <div id="enemy-character">
+                    <img src="https://via.placeholder.com/150/FF0000/FFFFFF?text=Enemy" alt="Enemy Monster">
+                </div>
+                <div id="word-puzzle">
+                    <p id="word-display">c _ t</p>
+                    <div id="word-image-container">
+                        <img id="word-image" src="https://via.placeholder.com/100/CCCCCC/000000?text=Meaning" alt="Word Meaning">
+                    </div>
+                    <div id="options-container">
+                        <button class="option-btn" data-vowel="a">A</button>
+                        <button class="option-btn" data-vowel="e">E</button>
+                        <button class="option-btn" data-vowel="o">O</button>
+                    </div>
+                </div>
+            </div>
+            <div id="feedback-message"></div>
+        </div>
+
+        <div id="quiz-screen" class="game-screen">
+            <h2>แบบทดสอบสุดท้าย!</h2>
+            <div id="quiz-questions">
+                </div>
+            <button id="submit-quiz-btn">ส่งคำตอบ</button>
+        </div>
+
+        <div id="result-screen" class="game-screen">
+            <h2>สรุปผลการผจญภัย</h2>
+            <p>คะแนนรวมของคุณ: <span id="final-score">0</span></p>
+            <p>ความสำเร็จ: <span id="mastery-message"></span></p>
+            <p>ระดับยศแมว: <span id="cat-rank"></span></p>
+            <button id="restart-game-btn">เล่นอีกครั้ง</button>
+        </div>
+    </div>
+
+    <audio id="audio-player" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
